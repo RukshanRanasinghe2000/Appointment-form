@@ -30,10 +30,11 @@ class AppointmentDao
         return $row;
     }
 
-    public static function Save($data)
+    public static function save($data)
     {
-        $query = "INSERT INTO appointment (name, mobile,email, date,time,doctor_id) VALUES ('" . $data->name . "','" . $data->mobile . "','" . $data->email . "','" . $data->date . "','" . $data->time . "'," . $data->doctor->id . ")";
-//        var_dump($query);
+//        var_dump($data);
+        $query = "INSERT INTO appointment (name, mobile,email, date,time,doctor_id) VALUES ('" . $data['name'] . "','" . $data['mobile'] . "','" . $data['email'] . "','" . $data['date'] . "','" . $data['time'] . "'," . $data ['doctor']->id . ")";
+        var_dump($query);
         return CommonDao::getResults($query);
     }
 
